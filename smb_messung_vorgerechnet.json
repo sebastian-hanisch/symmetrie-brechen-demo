@@ -1,0 +1,1003 @@
+{
+ "meta": {
+  "skript": "tools/messung_symmetrie.py",
+  "kern": "smb_cdcl.py (Kern-Version 832b2c10dfdea62d, unverändert)",
+  "einheit": "Konflikte bis zur Antwort; Abbrüche zählen mit dem Budget (untere Schranke); keine Sekunden",
+  "budget_schubfach": 100000,
+  "budget_schur4": 300000,
+  "budget_schadet": 100000,
+  "budget_faerbung": 100000,
+  "schadet_seeds": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17,
+   18,
+   19,
+   20
+  ],
+  "kontrolle_seeds": [
+   21,
+   120
+  ],
+  "faerbung": {
+   "grad": 5.0,
+   "rampen": 3,
+   "seeds": [
+    500,
+    501,
+    502,
+    503,
+    504,
+    505,
+    506,
+    507,
+    508,
+    509
+   ]
+  },
+  "loeser": "Standardlauf: Aktivität (VSIDS), Phasenspeicher, Luby (Einheit 32), Löser-Zufalls-Seed 0 ohne noise; die Seeds 1 bis 20 mit noise (zufälliger Start der Aktivitäten)"
+ },
+ "schubfach": [
+  {
+   "h": 3,
+   "ohne": {
+    "antwort": "unerfüllbar",
+    "konflikte": 7,
+    "entscheidungen": 9,
+    "propagationen": 55,
+    "gelernt": 6
+   },
+   "mit": {
+    "antwort": "unerfüllbar",
+    "konflikte": 1,
+    "entscheidungen": 0,
+    "propagationen": 11,
+    "gelernt": 0
+   }
+  },
+  {
+   "h": 4,
+   "ohne": {
+    "antwort": "unerfüllbar",
+    "konflikte": 28,
+    "entscheidungen": 38,
+    "propagationen": 297,
+    "gelernt": 27
+   },
+   "mit": {
+    "antwort": "unerfüllbar",
+    "konflikte": 1,
+    "entscheidungen": 0,
+    "propagationen": 19,
+    "gelernt": 0
+   }
+  },
+  {
+   "h": 5,
+   "ohne": {
+    "antwort": "unerfüllbar",
+    "konflikte": 159,
+    "entscheidungen": 200,
+    "propagationen": 1827,
+    "gelernt": 158
+   },
+   "mit": {
+    "antwort": "unerfüllbar",
+    "konflikte": 1,
+    "entscheidungen": 0,
+    "propagationen": 29,
+    "gelernt": 0
+   }
+  },
+  {
+   "h": 6,
+   "ohne": {
+    "antwort": "unerfüllbar",
+    "konflikte": 1004,
+    "entscheidungen": 1299,
+    "propagationen": 13097,
+    "gelernt": 1003
+   },
+   "mit": {
+    "antwort": "unerfüllbar",
+    "konflikte": 1,
+    "entscheidungen": 0,
+    "propagationen": 41,
+    "gelernt": 0
+   }
+  },
+  {
+   "h": 7,
+   "ohne": {
+    "antwort": "unerfüllbar",
+    "konflikte": 4811,
+    "entscheidungen": 6381,
+    "propagationen": 63653,
+    "gelernt": 4810
+   },
+   "mit": {
+    "antwort": "unerfüllbar",
+    "konflikte": 1,
+    "entscheidungen": 0,
+    "propagationen": 55,
+    "gelernt": 0
+   }
+  },
+  {
+   "h": 8,
+   "ohne": {
+    "antwort": "unerfüllbar",
+    "konflikte": 27932,
+    "entscheidungen": 37081,
+    "propagationen": 366070,
+    "gelernt": 27931
+   },
+   "mit": {
+    "antwort": "unerfüllbar",
+    "konflikte": 1,
+    "entscheidungen": 0,
+    "propagationen": 71,
+    "gelernt": 0
+   }
+  }
+ ],
+ "schur3": [
+  {
+   "n": 11,
+   "k": 3,
+   "ohne": {
+    "antwort": "erfüllbar",
+    "konflikte": 1,
+    "entscheidungen": 10,
+    "propagationen": 42,
+    "gelernt": 1
+   },
+   "mit": {
+    "antwort": "erfüllbar",
+    "konflikte": 2,
+    "entscheidungen": 10,
+    "propagationen": 55,
+    "gelernt": 2
+   }
+  },
+  {
+   "n": 12,
+   "k": 3,
+   "ohne": {
+    "antwort": "erfüllbar",
+    "konflikte": 1,
+    "entscheidungen": 11,
+    "propagationen": 45,
+    "gelernt": 1
+   },
+   "mit": {
+    "antwort": "erfüllbar",
+    "konflikte": 2,
+    "entscheidungen": 9,
+    "propagationen": 60,
+    "gelernt": 2
+   }
+  },
+  {
+   "n": 13,
+   "k": 3,
+   "ohne": {
+    "antwort": "erfüllbar",
+    "konflikte": 18,
+    "entscheidungen": 31,
+    "propagationen": 247,
+    "gelernt": 18
+   },
+   "mit": {
+    "antwort": "erfüllbar",
+    "konflikte": 11,
+    "entscheidungen": 20,
+    "propagationen": 180,
+    "gelernt": 11
+   }
+  },
+  {
+   "n": 14,
+   "k": 3,
+   "ohne": {
+    "antwort": "unerfüllbar",
+    "konflikte": 148,
+    "entscheidungen": 179,
+    "propagationen": 2262,
+    "gelernt": 147
+   },
+   "mit": {
+    "antwort": "unerfüllbar",
+    "konflikte": 21,
+    "entscheidungen": 26,
+    "propagationen": 311,
+    "gelernt": 20
+   }
+  }
+ ],
+ "schur4": [
+  {
+   "n": 43,
+   "k": 4,
+   "ohne": {
+    "antwort": "erfüllbar",
+    "konflikte": 6,
+    "entscheidungen": 0,
+    "propagationen": 0,
+    "gelernt": 0
+   },
+   "mit": {
+    "antwort": "erfüllbar",
+    "konflikte": 352,
+    "entscheidungen": 0,
+    "propagationen": 0,
+    "gelernt": 0
+   }
+  },
+  {
+   "n": 44,
+   "k": 4,
+   "ohne": {
+    "antwort": "erfüllbar",
+    "konflikte": 108775,
+    "entscheidungen": 0,
+    "propagationen": 0,
+    "gelernt": 0
+   },
+   "mit": {
+    "antwort": "erfüllbar",
+    "konflikte": 3844,
+    "entscheidungen": 0,
+    "propagationen": 0,
+    "gelernt": 0
+   }
+  },
+  {
+   "n": 45,
+   "k": 4,
+   "ohne": {
+    "antwort": "Abbruch am Budget",
+    "konflikte": 300000,
+    "entscheidungen": 0,
+    "propagationen": 0,
+    "gelernt": 0
+   },
+   "mit": {
+    "antwort": "unerfüllbar",
+    "konflikte": 109523,
+    "entscheidungen": 0,
+    "propagationen": 0,
+    "gelernt": 0
+   }
+  }
+ ],
+ "schadet": [
+  {
+   "n": 38,
+   "k": 4,
+   "standard": {
+    "ohne": {
+     "antwort": "erfüllbar",
+     "konflikte": 0,
+     "entscheidungen": 32,
+     "propagationen": 152,
+     "gelernt": 0
+    },
+    "mit": {
+     "antwort": "erfüllbar",
+     "konflikte": 65,
+     "entscheidungen": 139,
+     "propagationen": 2223,
+     "gelernt": 65
+    }
+   },
+   "ohne": {
+    "konflikte": [
+     120,
+     617,
+     54,
+     433,
+     126,
+     289,
+     293,
+     198,
+     43,
+     141,
+     60,
+     115,
+     112,
+     631,
+     63,
+     125,
+     137,
+     220,
+     70,
+     228
+    ],
+    "antworten": [
+     "True"
+    ],
+    "abbrueche": 0
+   },
+   "mit": {
+    "konflikte": [
+     193,
+     167,
+     698,
+     84,
+     46,
+     46,
+     236,
+     154,
+     211,
+     50,
+     60,
+     60,
+     201,
+     322,
+     68,
+     105,
+     86,
+     177,
+     40,
+     79
+    ],
+    "antworten": [
+     "True"
+    ],
+    "abbrueche": 0
+   }
+  },
+  {
+   "n": 40,
+   "k": 4,
+   "standard": {
+    "ohne": {
+     "antwort": "erfüllbar",
+     "konflikte": 6,
+     "entscheidungen": 38,
+     "propagationen": 309,
+     "gelernt": 6
+    },
+    "mit": {
+     "antwort": "erfüllbar",
+     "konflikte": 184,
+     "entscheidungen": 298,
+     "propagationen": 5957,
+     "gelernt": 184
+    }
+   },
+   "ohne": {
+    "konflikte": [
+     75,
+     679,
+     103,
+     109,
+     85,
+     415,
+     380,
+     2717,
+     586,
+     171,
+     2555,
+     324,
+     216,
+     689,
+     179,
+     587,
+     322,
+     506,
+     231,
+     205
+    ],
+    "antworten": [
+     "True"
+    ],
+    "abbrueche": 0
+   },
+   "mit": {
+    "konflikte": [
+     397,
+     1018,
+     1815,
+     491,
+     46,
+     104,
+     177,
+     345,
+     237,
+     235,
+     591,
+     149,
+     1825,
+     481,
+     381,
+     694,
+     999,
+     98,
+     232,
+     173
+    ],
+    "antworten": [
+     "True"
+    ],
+    "abbrueche": 0
+   }
+  },
+  {
+   "n": 42,
+   "k": 4,
+   "standard": {
+    "ohne": {
+     "antwort": "erfüllbar",
+     "konflikte": 6,
+     "entscheidungen": 38,
+     "propagationen": 323,
+     "gelernt": 6
+    },
+    "mit": {
+     "antwort": "erfüllbar",
+     "konflikte": 352,
+     "entscheidungen": 525,
+     "propagationen": 10698,
+     "gelernt": 352
+    }
+   },
+   "ohne": {
+    "konflikte": [
+     784,
+     70,
+     729,
+     388,
+     109,
+     570,
+     1181,
+     480,
+     151,
+     101,
+     171,
+     255,
+     324,
+     747,
+     90,
+     195,
+     5363,
+     211,
+     301,
+     139
+    ],
+    "antworten": [
+     "True"
+    ],
+    "abbrueche": 0
+   },
+   "mit": {
+    "konflikte": [
+     835,
+     434,
+     184,
+     1875,
+     364,
+     186,
+     139,
+     221,
+     365,
+     181,
+     875,
+     367,
+     217,
+     596,
+     395,
+     89,
+     653,
+     220,
+     372,
+     515
+    ],
+    "antworten": [
+     "True"
+    ],
+    "abbrueche": 0
+   }
+  },
+  {
+   "n": 43,
+   "k": 4,
+   "standard": {
+    "ohne": {
+     "antwort": "erfüllbar",
+     "konflikte": 6,
+     "entscheidungen": 41,
+     "propagationen": 329,
+     "gelernt": 6
+    },
+    "mit": {
+     "antwort": "erfüllbar",
+     "konflikte": 352,
+     "entscheidungen": 525,
+     "propagationen": 10762,
+     "gelernt": 352
+    }
+   },
+   "ohne": {
+    "konflikte": [
+     102,
+     77,
+     1034,
+     38,
+     139,
+     455,
+     197,
+     316,
+     174,
+     5306,
+     171,
+     102,
+     303,
+     717,
+     90,
+     577,
+     762,
+     314,
+     302,
+     782
+    ],
+    "antworten": [
+     "True"
+    ],
+    "abbrueche": 0
+   },
+   "mit": {
+    "konflikte": [
+     1711,
+     1094,
+     609,
+     680,
+     1460,
+     169,
+     139,
+     229,
+     365,
+     204,
+     1203,
+     367,
+     764,
+     339,
+     395,
+     112,
+     418,
+     99,
+     351,
+     203
+    ],
+    "antworten": [
+     "True"
+    ],
+    "abbrueche": 0
+   }
+  }
+ ],
+ "kontrolle": {
+  "n": 43,
+  "k": 4,
+  "seeds": [
+   21,
+   120
+  ],
+  "ohne": {
+   "konflikte": [
+    336,
+    818,
+    179,
+    1006,
+    660,
+    1277,
+    1084,
+    296,
+    546,
+    1399,
+    302,
+    310,
+    684,
+    65,
+    261,
+    414,
+    1310,
+    639,
+    1390,
+    391,
+    504,
+    263,
+    547,
+    311,
+    169,
+    87,
+    445,
+    758,
+    264,
+    63,
+    143,
+    1845,
+    649,
+    137,
+    348,
+    112,
+    517,
+    139,
+    1467,
+    1119,
+    210,
+    201,
+    808,
+    184,
+    211,
+    162,
+    374,
+    219,
+    457,
+    960,
+    336,
+    3509,
+    312,
+    147,
+    129,
+    683,
+    316,
+    244,
+    165,
+    262,
+    938,
+    1568,
+    1323,
+    105,
+    675,
+    162,
+    184,
+    1772,
+    1086,
+    451,
+    2727,
+    1047,
+    1231,
+    76,
+    239,
+    270,
+    314,
+    464,
+    61,
+    500,
+    518,
+    313,
+    214,
+    1587,
+    292,
+    574,
+    3295,
+    280,
+    165,
+    778,
+    1078,
+    690,
+    872,
+    70,
+    457,
+    392,
+    150,
+    224,
+    1511,
+    604
+   ],
+   "antworten": [
+    "True"
+   ],
+   "abbrueche": 0
+  },
+  "mit": {
+   "konflikte": [
+    351,
+    119,
+    235,
+    219,
+    359,
+    197,
+    129,
+    329,
+    379,
+    205,
+    330,
+    531,
+    349,
+    1222,
+    403,
+    859,
+    1132,
+    70,
+    228,
+    399,
+    317,
+    231,
+    87,
+    114,
+    711,
+    45,
+    244,
+    250,
+    102,
+    328,
+    613,
+    37,
+    415,
+    218,
+    111,
+    922,
+    234,
+    167,
+    138,
+    324,
+    475,
+    104,
+    262,
+    268,
+    190,
+    36,
+    330,
+    104,
+    353,
+    178,
+    1002,
+    591,
+    147,
+    429,
+    255,
+    267,
+    202,
+    257,
+    82,
+    89,
+    352,
+    235,
+    257,
+    1048,
+    169,
+    48,
+    419,
+    454,
+    544,
+    164,
+    616,
+    629,
+    1276,
+    267,
+    715,
+    109,
+    97,
+    449,
+    2881,
+    144,
+    602,
+    313,
+    466,
+    786,
+    1628,
+    203,
+    118,
+    271,
+    319,
+    1473,
+    134,
+    410,
+    4181,
+    57,
+    387,
+    398,
+    102,
+    1908,
+    303,
+    1810
+   ],
+   "antworten": [
+    "True"
+   ],
+   "abbrueche": 0
+  }
+ },
+ "faerbung": [
+  {
+   "n": 60,
+   "seed0": 500,
+   "anzahl": 10,
+   "regeln": {
+    "ohne": [
+     15,
+     26,
+     11,
+     9,
+     24,
+     32,
+     9,
+     19,
+     72,
+     30
+    ],
+    "kante_fest": [
+     6,
+     17,
+     4,
+     9,
+     3,
+     7,
+     1,
+     17,
+     23,
+     7
+    ],
+    "wertevorrang": [
+     4,
+     12,
+     4,
+     8,
+     10,
+     13,
+     8,
+     15,
+     20,
+     6
+    ]
+   },
+   "antworten": [
+    "unerfüllbar",
+    "unerfüllbar",
+    "unerfüllbar",
+    "unerfüllbar",
+    "unerfüllbar",
+    "unerfüllbar",
+    "unerfüllbar",
+    "unerfüllbar",
+    "unerfüllbar",
+    "unerfüllbar"
+   ],
+   "antworten_gleich": true,
+   "abbrueche": {
+    "ohne": 0,
+    "kante_fest": 0,
+    "wertevorrang": 0
+   }
+  },
+  {
+   "n": 90,
+   "seed0": 500,
+   "anzahl": 10,
+   "regeln": {
+    "ohne": [
+     31,
+     103,
+     49,
+     85,
+     94,
+     33,
+     49,
+     68,
+     48,
+     33
+    ],
+    "kante_fest": [
+     24,
+     37,
+     11,
+     38,
+     75,
+     29,
+     39,
+     31,
+     30,
+     7
+    ],
+    "wertevorrang": [
+     21,
+     55,
+     33,
+     32,
+     65,
+     29,
+     51,
+     54,
+     23,
+     7
+    ]
+   },
+   "antworten": [
+    "unerfüllbar",
+    "unerfüllbar",
+    "unerfüllbar",
+    "unerfüllbar",
+    "unerfüllbar",
+    "unerfüllbar",
+    "unerfüllbar",
+    "unerfüllbar",
+    "unerfüllbar",
+    "unerfüllbar"
+   ],
+   "antworten_gleich": true,
+   "abbrueche": {
+    "ohne": 0,
+    "kante_fest": 0,
+    "wertevorrang": 0
+   }
+  },
+  {
+   "n": 120,
+   "seed0": 500,
+   "anzahl": 10,
+   "regeln": {
+    "ohne": [
+     172,
+     43,
+     78,
+     7,
+     84,
+     135,
+     128,
+     26,
+     68,
+     51
+    ],
+    "kante_fest": [
+     58,
+     25,
+     32,
+     1,
+     38,
+     7,
+     43,
+     6,
+     8,
+     47
+    ],
+    "wertevorrang": [
+     79,
+     30,
+     56,
+     2,
+     41,
+     17,
+     73,
+     7,
+     16,
+     56
+    ]
+   },
+   "antworten": [
+    "unerfüllbar",
+    "unerfüllbar",
+    "unerfüllbar",
+    "unerfüllbar",
+    "unerfüllbar",
+    "unerfüllbar",
+    "unerfüllbar",
+    "unerfüllbar",
+    "unerfüllbar",
+    "unerfüllbar"
+   ],
+   "antworten_gleich": true,
+   "abbrueche": {
+    "ohne": 0,
+    "kante_fest": 0,
+    "wertevorrang": 0
+   }
+  }
+ ]
+}
