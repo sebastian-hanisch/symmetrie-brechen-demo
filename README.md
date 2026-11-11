@@ -1,7 +1,6 @@
 # Symmetrie brechen – aus 27 932 Konflikten wird einer – Streamlit-Demo
 
-<!-- TODO nach dem Deploy: direkt hierher den Live-Link setzen (Leerzeile davor und danach):
-**[→ Demo live ausprobieren](https://sebastianhanisch-symmetrie-brechen-demo.streamlit.app/)** -->
+**[→ Demo live ausprobieren](https://sebastianhanisch-symmetrie-brechen-demo.streamlit.app/)**
 
 Stück der **sat-constraint-programming**-Linie in der „Konzepte“-Reihe für die Website „Sebastian Hanisch – Operations Research und Machine Learning“, im SAT-Arm. Vorgänger in der Linie ist `kardinalitaet-kodieren-demo` (Zählbedingungen als Klauseln; Kante „fix“: vertauschbare Rampen, Farben oder Löcher machen jede Lösung und jede Sackgasse mehrfach, ohne dass der Löser es merkt). Nachbarn: `konfliktlernen-demo` (Lernen ohne Brechung; das Schubfach ist dort die Grenze des Lernens, hier der Ausweg), `graph-coloring-demo` (dieselbe Färbung, andere Frage) und `sat-phasenuebergang-demo` (Schubfach und Störung). Vehikel der Linie: **Aufträge mit Unverträglichkeiten auf Rampen**, das ist die Färbung eines Konfliktgraphen; Rampen sind austauschbar, also Farben. Dazu die Grenzbeispiele **Schubfach** und **Schur-Zahlen**.
 
