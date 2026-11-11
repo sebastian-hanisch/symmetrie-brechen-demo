@@ -51,17 +51,27 @@ def lauf_seed(inst: Instanz, regel: str | None, seed: int, budget: int | None) -
     return lauf(inst, regel, budget=budget, seed=seed, noise=True)
 
 
-def konflikte_je_seed(inst: Instanz, regel: str | None, seeds, budget: int | None) -> tuple:
-    """(Konflikte je Seed als Liste, Menge der Antworten ohne Abbruch, Zahl der Abbrüche). Abbrüche zählen mit dem Budget."""
+def seed_lauf(inst: Instanz, regel: str | None, seed: int, budget: int | None) -> tuple:
+    """(Konflikte, Antwort) eines Laufs mit Löser-Zufalls-Seed; die Antwort ist `None` bei Abbruch am Budget (eine Einheit von `konflikte_je_seed`)."""
+    erg = lauf_seed(inst, regel, seed, budget)
+    return erg.stat["konflikte"], erg.antwort
+
+
+def seeds_zusammen(laeufe) -> tuple:
+    """Setzt (Konflikte, Antwort)-Paare zu dem Ergebnis von `konflikte_je_seed` zusammen."""
     konflikte, antworten, abbrueche = [], set(), 0
-    for s in seeds:
-        erg = lauf_seed(inst, regel, s, budget)
-        konflikte.append(erg.stat["konflikte"])
-        if erg.antwort is None:
+    for k, antwort in laeufe:
+        konflikte.append(k)
+        if antwort is None:
             abbrueche += 1
         else:
-            antworten.add(erg.antwort)
+            antworten.add(antwort)
     return konflikte, antworten, abbrueche
+
+
+def konflikte_je_seed(inst: Instanz, regel: str | None, seeds, budget: int | None) -> tuple:
+    """(Konflikte je Seed als Liste, Menge der Antworten ohne Abbruch, Zahl der Abbrüche). Abbrüche zählen mit dem Budget."""
+    return seeds_zusammen(seed_lauf(inst, regel, s, budget) for s in seeds)
 
 
 def regel_der_aufgabe(inst: Instanz) -> str:
@@ -76,13 +86,15 @@ def wurzel(inst: Instanz, regel: str | None = None) -> dict:
     return {"konflikt": r["konflikt"], "belegt": len(r["wert"]), "variablen": aufgabe.n, "schritte": r["schritte"], "klauseln": aufgabe.klauseln}
 
 
+def schubfach_zeile(h: int, budget: int) -> dict:
+    """Eine Zeile von `schubfach_reihe`: Konflikte des Standardlaufs ohne und mit Lochvorrang bei h + 1 Aufträgen und h Rampen."""
+    inst = SY.schubfach(h)
+    return {"h": h, "ohne": messung(lauf(inst, None, budget=budget)), "mit": messung(lauf(inst, SY.REGEL_LOCHVORRANG, budget=budget))}
+
+
 def schubfach_reihe(h_von: int, h_bis: int, budget: int) -> list:
     """Je h von h_von bis h_bis: Konflikte des Standardlaufs ohne und mit Lochvorrang auf h + 1 Aufträgen und h Rampen. [{h, ohne, mit}] (Messung-Objekte)."""
-    zeilen = []
-    for h in range(h_von, h_bis + 1):
-        inst = SY.schubfach(h)
-        zeilen.append({"h": h, "ohne": messung(lauf(inst, None, budget=budget)), "mit": messung(lauf(inst, SY.REGEL_LOCHVORRANG, budget=budget))})
-    return zeilen
+    return [schubfach_zeile(h, budget) for h in range(h_von, h_bis + 1)]
 
 
 def schur_reihe(ns, k: int, budget: int) -> list:

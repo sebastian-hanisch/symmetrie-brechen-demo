@@ -17,6 +17,7 @@ import smb_algorithm as A
 import smb_constants as C
 import smb_evaluation as E
 import smb_instanzen as I
+import smb_live as L
 import smb_scenario as S
 import smb_symmetrie as SY
 import smb_visualization as V
@@ -57,24 +58,7 @@ def _schur3_zeilen(ns, budget):
     return [E.zeile_aus(_dict(z["ohne"]), _dict(z["mit"]), n=z["n"], k=3) for z in zeilen]
 
 
-@st.cache_data(show_spinner=False)
-def _schubfach_live(h_bis, budget):
-    t0 = time.perf_counter()
-    zeilen = A.schubfach_reihe(C.H_REIHE_MIN, h_bis, budget)
-    return [E.zeile_aus(_dict(z["ohne"]), _dict(z["mit"]), h=z["h"]) for z in zeilen], time.perf_counter() - t0
-
-
-@st.cache_data(show_spinner=False)
-def _schadet_live(n, seeds, budget):
-    t0 = time.perf_counter()
-    inst = I.schur(n, C.SCHADET_K)
-    ohne, a_ohne, ab_ohne = A.konflikte_je_seed(inst, None, range(1, seeds + 1), budget)
-    mit, a_mit, ab_mit = A.konflikte_je_seed(inst, WERT, range(1, seeds + 1), budget)
-    return {"ohne": {"konflikte": ohne, "abbrueche": ab_ohne, "antworten": sorted(str(a) for a in a_ohne)},
-            "mit": {"konflikte": mit, "abbrueche": ab_mit, "antworten": sorted(str(a) for a in a_mit)}}, time.perf_counter() - t0
-
-
-@st.cache_data(show_spinner=False)
+@st.cache_data(show_spinner=False, max_entries=12)
 def _faerbung_live(n, seed0, budget):
     t0 = time.perf_counter()
     return A.faerbung_zelle(n, seed0, budget), time.perf_counter() - t0
@@ -287,11 +271,10 @@ with tab2:
     st.markdown("**Selbst nachrechnen** (live, mit dem Konfliktbudget der Seitenleiste)")
     h_bis = st.slider("Live bis h", *bounds("h_bis_slider"), key="h_bis_slider", help="Gerechnet werden h = 3 bis zu diesem Wert, je ohne und mit Lochvorrang.")
     if h_bis >= 7:
-        st.caption("Bei h = 7 braucht der Lauf ohne Regel mehrere tausend Konflikte und einige Sekunden; der Spinner zeigt die gemessene Zeit nur als Anzeige, nicht als Befund.")
+        st.caption("Bei h = 7 braucht der Lauf ohne Regel mehrere tausend Konflikte; ein Fortschrittsbalken zählt die fertigen Zeilen, ein zweiter Klick mit denselben Einstellungen antwortet aus dem Zwischenspeicher.")
     sf_schluessel = (h_bis, budget)
     if st.button("▶ Läufe rechnen", key="schubfach_rechnen"):
-        with st.spinner(f"Rechne h = 3 bis {h_bis}, je ohne und mit Lochvorrang, bis zu {E.zahl(budget)} Konflikte je Lauf …"):
-            st.session_state["schubfach_ergebnis"] = (sf_schluessel, *_schubfach_live(*sf_schluessel))
+        st.session_state["schubfach_ergebnis"] = (sf_schluessel, *L.schubfach(*sf_schluessel))
     erg = st.session_state.get("schubfach_ergebnis")
     if erg is None or erg[0] != sf_schluessel:
         st.info("Für diese Einstellung ist noch nichts gerechnet. Mit „Läufe rechnen“ starten.")
@@ -373,8 +356,7 @@ with tab4:
     seeds = st.slider("Löser-Zufalls-Seeds", *bounds("seeds_slider"), key="seeds_slider", help="Je Seite so viele Läufe (Seeds 1 bis zu diesem Wert) derselben Aufgabe.")
     live_schluessel = (n_s, seeds, budget)
     if st.button("▶ Seeds rechnen", key="schadet_rechnen"):
-        with st.spinner(f"Rechne 2 × {seeds} Läufe, je bis zu {E.zahl(budget)} Konflikte …"):
-            st.session_state["schadet_ergebnis"] = (live_schluessel, *_schadet_live(*live_schluessel))
+        st.session_state["schadet_ergebnis"] = (live_schluessel, *L.schadet(*live_schluessel))
     erg = st.session_state.get("schadet_ergebnis")
     if erg is None or erg[0] != live_schluessel:
         st.info("Für diese Einstellung ist noch nichts gerechnet. Mit „Seeds rechnen“ starten.")

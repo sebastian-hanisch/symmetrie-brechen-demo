@@ -107,6 +107,7 @@ Alle Zahlen stammen aus `smb_messung_vorgerechnet.json` (Messung dieses Repos mi
 | `smb_evaluation.py` | Verdikte (reine Funktionen), Tests über viele Läufe, Auswertung der Messdatei |
 | `smb_visualization.py` | Plotly-Abbildungen (Achsen gesperrt) |
 | `smb_layout.py` | Fester Kopf (Stylesheet) |
+| `smb_live.py` | Live-Knöpfe: Zwischenspeicher (`st.cache_data`, je Einheit) und Fortschrittsanzeige (zählt die fertigen Einheiten) |
 | `smb_presets.py` | Permalink (Begrenzen), Szenarien des Schnellstarts (Seitenleiste, aktives Szenario hervorgehoben), Zufalls-Seed-Knopf |
 | `smb_messung_vorgerechnet.json` | vorgerechnete Messreihen (Messung dieses Repos) |
 | `tools/messung_symmetrie.py` | Messskript der Reihen |
